@@ -1,0 +1,24 @@
+name: Build PR
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Test Build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+
+      - name: Build
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: shanemcc/docker-exabgp
+          tags: pr-${{ github.event.number }}
+          dockerfile: Dockerfile
+          registry: docker.io
+          pushImage: false
