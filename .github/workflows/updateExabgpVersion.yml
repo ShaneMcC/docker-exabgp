@@ -17,11 +17,11 @@ jobs:
       desired_tag: ${{ steps.check-for-updates.outputs.tag_version }}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4.1.7
 
       - name: Check for updates
         id: check-for-updates
-        run:  "${GITHUB_WORKSPACE}/.github/updateDockerfile.sh"
+        run:  "${GITHUB_WORKSPACE}/.github/updateExabgpVersion.sh"
 
       - name: Build Docker Image
         if: steps.check-for-updates.outputs.changes_detected == 'true'
