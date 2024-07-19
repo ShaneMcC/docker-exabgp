@@ -41,7 +41,7 @@ if [ $CHANGED != 0 ]; then
 
 	echo "changes_detected=true" >> $GITHUB_OUTPUT
 	echo "changed_items=${ALL_CHANGED_THINGS}" >> $GITHUB_OUTPUT
-	echo "tag_version=${LATEST_EXABGP}" >> $GITHUB_OUTPUT
+	echo "tag_version=v${LATEST_EXABGP}" >> $GITHUB_OUTPUT
 else
 	echo "No changes detected" | tee -a $GITHUB_STEP_SUMMARY
 	echo "changes_detected=false" >> $GITHUB_OUTPUT
