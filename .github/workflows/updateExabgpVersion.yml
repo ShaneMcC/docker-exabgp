@@ -64,5 +64,5 @@ jobs:
     permissions:
       actions: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.7
       - uses: gautamkrishnar/keepalive-workflow@v2
