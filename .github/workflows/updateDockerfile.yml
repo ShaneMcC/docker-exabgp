@@ -48,3 +48,11 @@ jobs:
     if: needs.update.outputs.changes_detected == 'true'
     with:
         commit_hash: ${{ needs.update.outputs.commit_hash }}
+
+  release-on-tag:
+    uses: ./.github/workflows/release-on-tag.yml
+    needs: update
+    secrets: inherit
+    if: needs.update.outputs.changes_detected == 'true'
+    with:
+        commit_hash: ${{ needs.update.outputs.commit_hash }}
