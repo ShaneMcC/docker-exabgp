@@ -3,7 +3,7 @@ name: Release on tag
 on:
   workflow_call:
     inputs:
-      commit_hash:
+      desired_tag:
         required: false
         type: string
   workflow_dispatch:
@@ -18,16 +18,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.7
         with:
           fetch-tags: true
+
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+        with:
+          fetch-tags: true
+          ref: ${{ inputs.desired_tag }}
+        if: inputs.desired_tag != ''
 
       - name: Generate CHANGELOG
         id: changelog
         uses: requarks/changelog-action@v1
         with:
           token: ${{ github.token }}
-          tag: ${{ github.ref_name }}
+          tag: ${{ inputs.desired_tag == '' && github.ref_name || inputs.desired_tag }}
           includeInvalidCommits: true
           excludeTypes:
 
