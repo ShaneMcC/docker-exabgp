@@ -1,6 +1,6 @@
 FROM python:3.11-alpine
 
-ARG EXABGP_VERSION=4.2.21
+ARG EXABGP_VERSION=4.2.22
 
 RUN apk add wget dumb-init git bash curl
 
