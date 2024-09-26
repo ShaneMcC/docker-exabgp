@@ -17,7 +17,7 @@ jobs:
       desired_tag: ${{ steps.check-for-updates.outputs.tag_version }}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
 
       - name: Check for updates
         id: check-for-updates
@@ -64,5 +64,5 @@ jobs:
     permissions:
       actions: write
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.0
       - uses: gautamkrishnar/keepalive-workflow@v2
