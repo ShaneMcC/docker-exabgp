@@ -18,17 +18,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6.0.2
         if: inputs.commit_hash == ''
 
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6.0.2
         with:
           ref: ${{ inputs.commit_hash }}
         if: inputs.commit_hash != ''
 
       - name: Build and Deploy to Docker Hub
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: mr-smithers-excellent/docker-build-push@v7
         with:
           image: shanemcc/docker-exabgp
           tags: dev-latest
@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and Deploy to GHCR
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: mr-smithers-excellent/docker-build-push@v7
         with:
           image: docker-exabgp
           tags: dev-latest
@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Deploy to registry
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: mr-smithers-excellent/docker-build-push@v7
         with:
           image: public/docker-exabgp
           tags: dev-latest
