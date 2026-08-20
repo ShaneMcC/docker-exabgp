@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.authors "Shane Mc Cormack <dataforce@dataforce.or
 LABEL org.opencontainers.image.description "exabgp in Docker."
 LABEL org.opencontainers.image.url "https://github.com/ShaneMcC/docker-exabgp"
 
-ARG EXABGP_VERSION=5.0.10
+ARG EXABGP_VERSION=5.0.11
 
 RUN apk add wget dumb-init git bash curl
 
