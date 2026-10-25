@@ -1,4 +1,4 @@
-FROM python:3.15.0rc2-alpine
+FROM python:3.14-alpine
 
 MAINTAINER Shane Mc Cormack <dataforce@dataforce.org.uk>
 LABEL org.opencontainers.image.authors "Shane Mc Cormack <dataforce@dataforce.org.uk>"
